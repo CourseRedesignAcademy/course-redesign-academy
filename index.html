@@ -21,8 +21,6 @@
   header{border-bottom:1px solid var(--rule);background:var(--paper)}
   .bar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0}
   .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
-  .logo-mark{width:38px;height:38px;border-radius:50%;background:var(--forest);
-    display:grid;place-items:center;color:#fff;font:600 14px/1 "Inter",sans-serif}
   .logo span{font:600 16px/1.2 "Inter",sans-serif}
   nav a{font:500 15px/1 "Inter",sans-serif;color:var(--body);text-decoration:none;margin-left:26px}
   nav a:hover{color:var(--forest)}
@@ -81,41 +79,9 @@
 
   .tabs{display:flex;border-bottom:1px solid var(--rule);margin:0 0 30px}
   .tab{font:600 15px/1 "Inter",sans-serif;background:none;border:none;border-bottom:3px solid transparent;
-    padding:14px 20px;color:#6c7873;cursor:pointer}
+    padding:14px 20px;color:#4a5551;cursor:pointer}
   .tab[aria-selected="true"]{color:var(--forest-deep);border-bottom-color:var(--brass)}
   .panel[hidden]{display:none}
-
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  @media(max-width:620px){.grid2{grid-template-columns:1fr}}
-  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
-  label{font:600 13.5px/1.4 "Inter",sans-serif;color:var(--ink)}
-  .req{color:#9a3412;font-weight:500}
-  input,select,textarea{font-family:"Inter",sans-serif;font-size:15px;padding:11px 12px;
-    border:1px solid #b9b5aa;border-radius:2px;background:#fff;color:var(--ink);width:100%}
-  textarea{min-height:100px;resize:vertical}
-  .hint{font:400 13px/1.5 "Inter",sans-serif;color:#4a5551;margin:-4px 0 18px}
-  fieldset{border:1px solid var(--rule);border-radius:2px;padding:18px 18px 4px;margin:0 0 22px}
-  legend{font:650 13px/1.4 "Inter",sans-serif;color:var(--forest-deep);padding:0 8px}
-  .consent{display:flex;gap:10px;align-items:flex-start;margin:6px 0 14px}
-  .consent input{width:auto;margin-top:3px}
-  .consent label{font-weight:400;font-size:13.5px;line-height:1.5;color:var(--body)}
-  .hp{position:absolute;left:-9999px}
-
-
-  /* --- status + seat availability --- */
-  .status{display:none;padding:13px 15px;border-radius:3px;margin:0 0 20px;
-    font:500 14.5px/1.55 "Inter",sans-serif}
-  .status.ok{display:block;background:#e7f1e9;border:1px solid #9dc0a8;color:#14401f}
-  .status.warn{display:block;background:#fbf2e0;border:1px solid #d9bd82;color:#6b4a12}
-  .status.err{display:block;background:#fbe9e7;border:1px solid #dba39c;color:#7a2318}
-  .seat-status{font:500 13.5px/1.5 "Inter",sans-serif;margin:-6px 0 14px;color:var(--forest-deep)}
-  .seat-status.loading{color:#4a5551}
-  .seat-status.waitlist{color:#8a5a12}
-  .seat-status.full{color:#8a2318}
-  .hp{position:absolute;left:-9999px}
-  button.btn{font:700 19px/1 "Inter",sans-serif}
-  button.btn:disabled{opacity:.55;cursor:not-allowed}
-
 
   /* --- Cognito seamless embed --- */
   .embed-frame{background:var(--paper);border:1px solid var(--rule);border-radius:4px;
@@ -132,7 +98,6 @@
 <header>
   <div class="wrap bar">
     <a class="logo" href="#top">
-      <!-- LOGO SLOT: replace this div with <img src="ATD_Logo.svg" alt="Achieving the Dream" height="38"> -->
       <img src="atd-logo.png" alt="Achieving the Dream" style="height:32px;width:auto">
       <span>Course Redesign Academy</span>
     </a>
@@ -211,7 +176,8 @@
 <section id="how">
   <div class="wrap">
     <h2>How it works</h2>
-    <p class="lede">Each academy is two weeks long, fully online through Canvas with a weekly 90-minute live session.</p>
+    <p class="lede">Two weeks, fully virtual. Each week combines self-paced work in Canvas with one
+       live 90-minute session — tentatively Fridays, 1:30–3:00 p.m. Eastern.</p>
     <div class="how">
       <div><h3>Week 1 — Module 1</h3><p><strong>Foundations of Course Redesign.</strong> Work through
         backward design and outcome prioritization at your own pace, then meet live for Session 1
@@ -249,7 +215,7 @@
        then Canvas access instructions about one week before the first session.</p>
 
     <div class="tabs" role="tablist">
-      <button class="tab" id="signup-tab" role="tab" aria-selected="true" aria-controls="signup-panel">Register for a section</button>
+      <button class="tab" id="signup-tab" role="tab" aria-selected="true" aria-controls="signup-panel">Register for an academy</button>
       <button class="tab" id="info-tab" role="tab" aria-selected="false" aria-controls="info-panel">Ask a question first</button>
     </div>
 
