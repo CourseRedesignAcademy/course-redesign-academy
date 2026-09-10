@@ -64,7 +64,8 @@
   .fit li:last-child{border-bottom:1px solid var(--rule)}
   .fit li::marker{color:#001848;font-size:1.4em}
 
-  .gets{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px;margin-top:8px}
+  .gets{display:grid;grid-template-columns:repeat(2,1fr);gap:36px 48px;margin-top:8px}
+  @media(max-width:640px){.gets{grid-template-columns:1fr}}
   .gets h3{font-size:1.02rem;margin:0 0 6px;color:var(--forest-deep);font-weight:650}
   .gets p{margin:0;font-size:.99rem}
 
@@ -181,23 +182,27 @@
     <div class="gets">
       <div>
         <h3>One redesigned unit</h3>
-        <p>Outcomes, sequencing, activities, and assessment for one unit — fully mapped and
-           ready to teach in a shortened-term calendar.</p>
+        <p>Outcomes, sequencing, activities, and assessment for one unit, fully mapped and
+           ready to teach in a shortened-term calendar. You choose the unit going in, and you
+           leave with something you can put directly into your course the next time it runs.</p>
       </div>
       <div>
         <h3>A concrete transition plan</h3>
         <p>The academy ends with a Unit Transition Plan: the specific steps that move this unit
-           from its current form into the compressed version.</p>
+           from its current form into the compressed version, including what changes, what gets
+           cut, and what stays the same.</p>
       </div>
       <div>
         <h3>Feedback from peers</h3>
         <p>Structured review of your redesign by faculty from other institutions working
-           through the same constraints in different disciplines.</p>
+           through the same constraints in different disciplines. You see how someone outside
+           your own department approached the same problem.</p>
       </div>
       <div>
         <h3>A record of completion</h3>
         <p>A letter of completion from Achieving the Dream documenting your participation
-           and the work you produced.</p>
+           and the work you produced, useful for an annual review, a tenure file, or your own
+           teaching portfolio.</p>
       </div>
     </div>
   </div>
@@ -206,7 +211,8 @@
 <section id="how">
   <div class="wrap">
     <h2>How it works</h2>
-    <p class="lede">Each academy is two weeks long, fully online through Canvas with a weekly 90-minute live session.</p>
+    <p class="lede">Two weeks, fully virtual. Each week combines self-paced work in Canvas with one
+       live 90-minute session — tentatively Fridays, 1:30–3:00 p.m. Eastern.</p>
     <div class="how">
       <div><h3>Week 1 — Module 1</h3><p><strong>Foundations of Course Redesign.</strong> Work through
         backward design and outcome prioritization at your own pace, then meet live for Session 1
