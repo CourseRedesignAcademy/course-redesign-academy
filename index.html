@@ -39,8 +39,8 @@
   .hero::after{width:420px;height:420px;background:rgba(58,156,153,.14);
     bottom:-200px;left:-120px}
   .hero h1{font-size:clamp(2rem,4.6vw,2.9rem);line-height:1.14;letter-spacing:-.02em;
-    font-weight:700;color:var(--ink);margin:0 0 22px;max-width:34ch}
-  .hero p{font-size:1.13rem;line-height:1.6;max-width:56ch;margin:0 0 32px;color:var(--body)}
+    font-weight:700;color:var(--ink);margin:0 0 22px;max-width:800px}
+  .hero p{font-size:1.13rem;line-height:1.6;max-width:800px;margin:0 0 32px;color:var(--body)}
   .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
 
   .btn{display:inline-block;font:700 19px/1 "Inter",sans-serif;padding:15px 26px;
@@ -59,10 +59,10 @@
   h2{font-size:1.55rem;letter-spacing:-.01em;color:var(--ink);margin:0 0 8px;font-weight:650}
   .lede{margin:0 0 28px;max-width:none}
 
-  .fit{list-style:none;padding:0;margin:0}
-  .fit li{padding:20px 0 20px 26px;border-top:1px solid var(--rule);position:relative}
+  .fit{list-style:disc;padding:0 0 0 1.15em;margin:0}
+  .fit li{padding:20px 0 20px 6px;border-top:1px solid var(--rule);margin-left:0}
   .fit li:last-child{border-bottom:1px solid var(--rule)}
-  .fit li::before{content:"";position:absolute;left:0;top:29px;width:11px;height:2px;background:var(--brass)}
+  .fit li::marker{color:#001848;font-size:1.4em}
 
   .gets{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px;margin-top:8px}
   .gets h3{font-size:1.02rem;margin:0 0 6px;color:var(--forest-deep);font-weight:650}
@@ -147,9 +147,9 @@
 
 <div class="hero" id="top">
   <div class="wrap">
-    <h1>Redesign one unit for a shortened term — start to finish, in two weeks.</h1>
+    <h1>Redesign one unit for a shortened term, start to finish, in two weeks.</h1>
     <p>A fully virtual, two-week academy for faculty adapting a course to a compressed calendar.
-       You leave having actually redesigned one unit — mapped, sequenced, and ready to teach —
+       You leave having actually redesigned one unit: mapped, sequenced, and ready to teach,
        not a plan to get to it later.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#signup-tab">Register for an academy</a>
@@ -162,7 +162,7 @@
   <div class="wrap">
     <h2>Who it's for</h2>
     <p class="lede">The academy is built for faculty who are actively teaching or about to teach
-       in a shortened term. Bring one specific unit from a course you teach — the work applies
+       in a shortened term. Bring one specific unit from a course you teach: the work applies
        to it across both weeks.</p>
     <ul class="fit">
       <li>Faculty converting an existing unit to an eight-week or other compressed format</li>
