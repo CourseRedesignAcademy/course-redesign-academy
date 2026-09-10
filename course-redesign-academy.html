@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Course Redesign Academy — Achieving the Dream</title>
+<style>
+  :root{
+    --ink:#12261c; --forest:#1d5632; --forest-deep:#0f3520; --moss:#4a7c59;
+    --sand:#f6f4ef; --paper:#ffffff; --brass:#b8863b; --rule:#d9d5cb; --body:#3a4340;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none!important}}
+  body{margin:0;background:var(--paper);color:var(--body);
+    font-family:"Charter","Bitstream Charter","Source Serif 4",Georgia,serif;font-size:17px;line-height:1.65}
+  h1,h2,h3,.ui{font-family:"Inter","Helvetica Neue",Arial,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .narrow{max-width:680px}
+
+  header{border-bottom:1px solid var(--rule);background:var(--paper)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+  .logo-mark{width:38px;height:38px;border-radius:50%;background:var(--forest);
+    display:grid;place-items:center;color:#fff;font:600 14px/1 "Inter",sans-serif}
+  .logo span{font:600 16px/1.2 "Inter",sans-serif}
+  nav a{font:500 15px/1 "Inter",sans-serif;color:var(--body);text-decoration:none;margin-left:26px}
+  nav a:hover{color:var(--forest)}
+  @media(max-width:760px){nav{display:none}}
+
+  .hero{background:var(--forest);color:#eef3ee;padding:76px 0 68px}
+  .hero h1{font-size:clamp(2.1rem,5.4vw,3.3rem);line-height:1.08;letter-spacing:-.02em;
+    font-weight:700;color:#fff;margin:0 0 22px;max-width:18ch}
+  .hero p{font-size:1.13rem;line-height:1.6;max-width:60ch;margin:0 0 32px;color:#d8e5da}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+
+  .btn{display:inline-block;font:600 15px/1 "Inter",sans-serif;padding:15px 26px;
+    border-radius:2px;text-decoration:none;cursor:pointer;border:1.5px solid transparent}
+  .btn-primary{background:var(--brass);color:#1a1206}
+  .btn-primary:hover{background:#a3752f}
+  .btn-ghost{border-color:#7fa389;color:#fff;background:transparent}
+  .btn-ghost:hover{background:rgba(255,255,255,.09)}
+  .btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,
+  select:focus-visible,textarea:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+
+  section{padding:64px 0}
+  .alt{background:var(--sand)}
+  h2{font-size:1.55rem;letter-spacing:-.01em;color:var(--ink);margin:0 0 8px;font-weight:650}
+  .lede{margin:0 0 28px;max-width:62ch}
+
+  .fit{list-style:none;padding:0;margin:0}
+  .fit li{padding:20px 0 20px 26px;border-top:1px solid var(--rule);position:relative}
+  .fit li:last-child{border-bottom:1px solid var(--rule)}
+  .fit li::before{content:"";position:absolute;left:0;top:29px;width:11px;height:2px;background:var(--brass)}
+
+  .gets{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px;margin-top:8px}
+  .gets h3{font-size:1.02rem;margin:0 0 6px;color:var(--forest-deep);font-weight:650}
+  .gets p{margin:0;font-size:.99rem}
+
+  .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:26px;margin-top:22px}
+  .how div{border-left:3px solid var(--moss);padding-left:18px}
+  .how h3{font:650 .82rem/1.3 "Inter",sans-serif;color:var(--moss);margin:0 0 6px}
+  .how p{margin:0;font-size:1rem}
+
+  .dates{width:100%;border-collapse:collapse;margin-top:20px;font-size:.97rem}
+  .dates th{font:650 13px/1.4 "Inter",sans-serif;text-align:left;color:var(--forest-deep);
+    border-bottom:2px solid var(--moss);padding:10px 12px 10px 0}
+  .dates td{padding:13px 12px 13px 0;border-bottom:1px solid var(--rule)}
+
+  .tabs{display:flex;border-bottom:1px solid var(--rule);margin:0 0 30px}
+  .tab{font:600 15px/1 "Inter",sans-serif;background:none;border:none;border-bottom:3px solid transparent;
+    padding:14px 20px;color:#6c7873;cursor:pointer}
+  .tab[aria-selected="true"]{color:var(--forest-deep);border-bottom-color:var(--brass)}
+  .panel[hidden]{display:none}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:620px){.grid2{grid-template-columns:1fr}}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+  label{font:600 13.5px/1.4 "Inter",sans-serif;color:var(--ink)}
+  .req{color:#9a3412;font-weight:500}
+  input,select,textarea{font-family:"Inter",sans-serif;font-size:15px;padding:11px 12px;
+    border:1px solid #b9b5aa;border-radius:2px;background:#fff;color:var(--ink);width:100%}
+  textarea{min-height:100px;resize:vertical}
+  .hint{font:400 13px/1.5 "Inter",sans-serif;color:#6c7873;margin:-4px 0 18px}
+  fieldset{border:1px solid var(--rule);border-radius:2px;padding:18px 18px 4px;margin:0 0 22px}
+  legend{font:650 13px/1.4 "Inter",sans-serif;color:var(--forest-deep);padding:0 8px}
+  .consent{display:flex;gap:10px;align-items:flex-start;margin:6px 0 14px}
+  .consent input{width:auto;margin-top:3px}
+  .consent label{font-weight:400;font-size:13.5px;line-height:1.5;color:var(--body)}
+  .hp{position:absolute;left:-9999px}
+
+
+  /* --- status + seat availability --- */
+  .status{display:none;padding:13px 15px;border-radius:3px;margin:0 0 20px;
+    font:500 14.5px/1.55 "Inter",sans-serif}
+  .status.ok{display:block;background:#e7f1e9;border:1px solid #9dc0a8;color:#14401f}
+  .status.warn{display:block;background:#fbf2e0;border:1px solid #d9bd82;color:#6b4a12}
+  .status.err{display:block;background:#fbe9e7;border:1px solid #dba39c;color:#7a2318}
+  .seat-status{font:500 13.5px/1.5 "Inter",sans-serif;margin:-6px 0 14px;color:var(--forest-deep)}
+  .seat-status.loading{color:#6c7873}
+  .seat-status.waitlist{color:#8a5a12}
+  .seat-status.full{color:#8a2318}
+  .hp{position:absolute;left:-9999px}
+  button.btn{font:600 15px/1 "Inter",sans-serif}
+  button.btn:disabled{opacity:.55;cursor:not-allowed}
+
+
+  /* --- Cognito seamless embed --- */
+  .embed-frame{background:var(--paper);border:1px solid var(--rule);border-radius:4px;
+    padding:26px 26px 10px}
+  .embed-frame .cognito{font-family:"Inter","Helvetica Neue",Arial,sans-serif}
+  .embed-frame noscript p{font:400 15px/1.6 "Inter",sans-serif;margin:0 0 16px}
+
+  footer{background:var(--forest-deep);color:#b9cdbe;padding:36px 0;font:400 14px/1.6 "Inter",sans-serif}
+  footer a{color:#dfe9e1}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">
+      <!-- LOGO SLOT: replace this div with <img src="ATD_Logo.svg" alt="Achieving the Dream" height="38"> -->
+      <div class="logo-mark">ATD</div>
+      <span>Course Redesign Academy</span>
+    </a>
+    <nav>
+      <a href="#fit">Who it's for</a>
+      <a href="#gets">What you get</a>
+      <a href="#how">How it works</a>
+      <a href="#dates">Dates</a>
+      <a href="#connect">Register</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <h1>Redesign your course for a shortened term — with a cohort doing the same work.</h1>
+    <p>A facilitated academy for faculty moving courses into eight-week and other compressed
+       formats. You leave with a redesigned course you can teach next term, not a plan to
+       redesign it someday.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#signup-tab">Register for a section</a>
+      <a class="btn btn-ghost" href="#info-tab">Ask a question first</a>
+    </div>
+  </div>
+</div>
+
+<section id="fit">
+  <div class="wrap">
+    <h2>Who it's for</h2>
+    <p class="lede">The academy is built for faculty who are actively teaching or about to teach
+       in a shortened term. Bring a specific course — the work is applied to it throughout.</p>
+    <ul class="fit">
+      <li>Faculty converting an existing 16-week course to an eight-week or compressed format</li>
+      <li>Faculty already teaching in shortened terms who want to strengthen pacing, workload, and assessment</li>
+      <li>Department chairs and program leads preparing a group of courses for a shortened-term rollout</li>
+      <li>Instructional designers and teaching-and-learning staff supporting faculty through the transition</li>
+    </ul>
+  </div>
+</section>
+
+<section class="alt" id="gets">
+  <div class="wrap">
+    <h2>What you get</h2>
+    <p class="lede">Every session produces a piece of your redesigned course. By the end you have
+       a full set, not a folder of ideas.</p>
+    <div class="gets">
+      <div>
+        <h3>A redesigned course</h3>
+        <p>A revised schedule, assessment plan, and workload map for one specific course,
+           built to fit the compressed calendar you actually teach.</p>
+      </div>
+      <div>
+        <h3>Pacing that holds up</h3>
+        <p>Practical approaches to sequencing, prioritizing essential outcomes, and cutting
+           what a shortened term can't carry — without lowering the bar.</p>
+      </div>
+      <div>
+        <h3>Feedback from peers</h3>
+        <p>Structured review of your redesign by faculty from other institutions working
+           through the same constraints in different disciplines.</p>
+      </div>
+      <div>
+        <h3>A record of completion</h3>
+        <p>A letter of completion from Achieving the Dream documenting your participation
+           and the work you produced.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="lede">Live virtual sessions with a facilitator, supported by a Canvas course space
+       for materials, submissions, and between-session work. Expect two to three hours of
+       independent work between sessions.</p>
+    <div class="how">
+      <div><h3>Before you start</h3><p>Choose the course you'll redesign and submit a short baseline description in Canvas.</p></div>
+      <div><h3>Sessions 1–2</h3><p>Identify essential outcomes and rebuild the term schedule around them.</p></div>
+      <div><h3>Sessions 3–4</h3><p>Redesign assessment and workload for the compressed calendar.</p></div>
+      <div><h3>Wrap-up</h3><p>Peer review, revision, and submission of your completed redesign.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="dates">
+  <div class="wrap">
+    <h2>Upcoming sections</h2>
+    <p class="lede">Two sections run each fall and two each spring. Sections are capped to keep
+       discussion and peer review workable. When a section fills, registration moves to a waitlist.</p>
+    <table class="dates">
+      <thead>
+        <tr><th>Section</th><th>Meets</th><th>Registration closes</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fall A</td><td>Tuesdays, 2:00–4:00 p.m. ET</td><td>TBD</td><td>Open</td></tr>
+        <tr><td>Fall B</td><td>Thursdays, 11:00 a.m.–1:00 p.m. ET</td><td>TBD</td><td>Open</td></tr>
+        <tr><td>Spring A</td><td>Wednesdays, 2:00–4:00 p.m. ET</td><td>TBD</td><td>Opens later</td></tr>
+        <tr><td>Spring B</td><td>Mondays, 11:00 a.m.–1:00 p.m. ET</td><td>TBD</td><td>Opens later</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="connect">
+  <div class="wrap narrow">
+    <h2>Register or ask a question</h2>
+    <p class="lede">Registering holds your seat in a section. You'll receive a confirmation email,
+       then Canvas access instructions about one week before the first session.</p>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" id="signup-tab" role="tab" aria-selected="true" aria-controls="signup-panel">Register for a section</button>
+      <button class="tab" id="info-tab" role="tab" aria-selected="false" aria-controls="info-panel">Ask a question first</button>
+    </div>
+
+    <!-- ==========================================================
+         COGNITO FORMS EMBEDS (Seamless) — Achieving the Dream org
+         Registration = form 1 (has seat caps via Limit Quantities)
+         Question     = form 3
+         ========================================================== -->
+
+    <div class="panel" id="signup-panel" role="tabpanel" aria-labelledby="signup-tab">
+      <div class="embed-frame">
+        <script src="https://www.cognitoforms.com/f/seamless.js" data-key="_KfJNqAZl0yio-AxbdaTEw" data-form="1"></script>
+        <div class="cognito"></div>
+        <noscript>
+          <p>This registration form needs JavaScript. Please email
+             <a href="mailto:bmcintire@achievingthedream.org">bmcintire@achievingthedream.org</a> to register.</p>
+        </noscript>
+      </div>
+    </div>
+
+    <div class="panel" id="info-panel" role="tabpanel" aria-labelledby="info-tab" hidden>
+      <div class="embed-frame">
+        <script src="https://www.cognitoforms.com/f/seamless.js" data-key="_KfJNqAZl0yio-AxbdaTEw" data-form="3"></script>
+        <div class="cognito"></div>
+        <noscript>
+          <p>This form needs JavaScript. Please email
+             <a href="mailto:bmcintire@achievingthedream.org">bmcintire@achievingthedream.org</a> with your question.</p>
+        </noscript>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="wrap">
+    Course Redesign Academy · Scaling Shortened Academic Terms · Achieving the Dream<br>
+    Questions: <a href="mailto:you@achievingthedream.org">you@achievingthedream.org</a>
+  </div>
+</footer>
+
+<script>
+/* Tab switching between the two embedded forms, plus the hero buttons.
+   Seat limits, waitlists, confirmation emails and the response
+   spreadsheet are all handled inside Cognito - nothing to maintain here. */
+const tabs = [...document.querySelectorAll('.tab')];
+function show(id){
+  tabs.forEach(t => {
+    const on = t.id === id;
+    t.setAttribute('aria-selected', on);
+    document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+  });
+}
+tabs.forEach(t => t.addEventListener('click', () => show(t.id)));
+document.querySelectorAll('a[href="#signup-tab"],a[href="#info-tab"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    show(a.getAttribute('href').slice(1));
+    document.getElementById('connect').scrollIntoView();
+  });
+});
+</script>
+</body>
+</html>
